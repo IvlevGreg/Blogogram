@@ -1,7 +1,7 @@
 <template>
   <form class="form" @submit.prevent>
-    <main-input v-model="post.title" type="text" class="input" placeholder="Название" />
-    <main-input v-model="post.body" type="text" class="input" placeholder="Описание" />
+    <main-input v-model.trim="post.title" type="text" class="input" placeholder="Название" />
+    <main-input v-model.trim="post.body" type="text" class="input" placeholder="Описание" />
     <main-button type="submit" @click="createPost">Создать</main-button>
   </form>
 </template>
