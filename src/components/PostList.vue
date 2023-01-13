@@ -1,5 +1,5 @@
 <template>
-  <ul class="posts">
+  <ul class="posts" v-if="posts.length > 0">
     <post-item
       v-for="post in posts"
       :post="post"
@@ -7,6 +7,7 @@
       @remove="$emit('remove', post)"
     />
   </ul>
+  <h2 class="no-posts" v-else>Список постов пуст</h2>
 </template>
 
 <script>
@@ -33,5 +34,8 @@ export default {
   gap: 15px;
 
   list-style: none;
+}
+
+.no-posts {
 }
 </style>
