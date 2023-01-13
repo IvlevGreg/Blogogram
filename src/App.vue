@@ -59,4 +59,8 @@ body {
 .form {
   margin-bottom: 20px;
 }
+
+.title {
+  margin: 0 0 20px;
+}
 </style>
