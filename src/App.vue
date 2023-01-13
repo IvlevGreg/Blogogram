@@ -1,7 +1,10 @@
 <template>
   <div class="app">
-    <h2 class="title">Добавить пост</h2>
-    <post-form @create="createPost" />
+    <main-button @click="showPopUp">Создать пост</main-button>
+    <pop-up v-model:show="isPopUpVisible">
+      <h2 class="title">Добавить пост</h2>
+      <post-form @create="createPost" />
+    </pop-up>
     <h2 class="title">Список постов</h2>
 
     <post-list :posts="posts" @remove="removePost" />
@@ -36,30 +39,33 @@ export default {
           body: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores rerum voluptates cupiditate doloremque ad harum dolorum, non pariatur mollitia officiis sunt amet similique odit, ipsum ex deleniti totam consectetur ab!',
         },
       ],
+      isPopUpVisible: false,
     }
   },
   methods: {
     createPost(post) {
       this.posts.push(post)
+      this.isPopUpVisible = false
     },
     removePost(postD) {
       this.posts = this.posts.filter((post) => post !== postD)
+    },
+    showPopUp() {
+      this.isPopUpVisible = true
     },
   },
 }
 </script>
 
-<style>
-body {
+<style scoped>
+.app {
   margin: 0 auto;
   padding: 30px;
   max-width: 1000px;
 }
-
-.form {
-  margin-bottom: 20px;
+.button {
+  margin-bottom: 10px;
 }
-
 .title {
   margin: 0 0 20px;
 }
