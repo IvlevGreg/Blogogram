@@ -4,7 +4,10 @@
       <h2 class="title">{{ post.title }}</h2>
       <p class="descr">{{ post.body }}</p>
     </div>
-    <main-button @click="$emit('remove', post)">Удалить</main-button>
+    <div class="buttons-container">
+      <main-button @click="$router.push(`post/${post.id}`)">Открыть</main-button>
+      <main-button @click="$emit('remove', post)">Удалить</main-button>
+    </div>
   </li>
 </template>
 
@@ -24,6 +27,7 @@ export default {
   padding: 15px;
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
   gap: 10px;
 
   border: 2px solid teal;
@@ -31,6 +35,11 @@ export default {
 
 .title {
   margin: 0 0 10px;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 .descr {
   margin: 0;
@@ -43,7 +52,14 @@ export default {
 .textContent {
   max-width: 600px;
 }
+
 .button {
   align-self: flex-end;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
 }
 </style>
