@@ -11,6 +11,7 @@ export default {
 <style scoped>
 .button {
   padding: 10px 20px;
+  box-sizing: border-box;
 
   background: none;
   border: 1px solid teal;
