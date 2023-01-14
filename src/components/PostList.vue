@@ -32,14 +32,19 @@ export default {
   margin: 0;
   padding: 0;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 15px;
 
   list-style: none;
 }
 
+.post {
+  width: 100%;
+}
+
 .no-posts {
 }
+
 .post-list-item {
   display: inline-block;
   margin-right: 10px;
@@ -62,5 +67,10 @@ export default {
 
 .post-list-move {
   transition: transform 0.4s;
+}
+@media screen and (min-width: 720px) {
+  .post {
+    width: calc(50% - 42px);
+  }
 }
 </style>
